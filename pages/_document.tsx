@@ -26,13 +26,13 @@ export default class Document extends NextDocument {
             href="/static/favicons/favicon-16x16.png"
           />
           <link rel="manifest" href="/static/favicons/manifest.json" />
+          <GoogleAnalytics gaId={process.env.GOOGLE_MEASUREMENT_ID || ""} />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
         </body>
-        <GoogleAnalytics gaId={process.env.GOOGLE_MEASUREMENT_ID||""} />
       </Html>
     );
   }
