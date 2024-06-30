@@ -13,10 +13,11 @@ export default class Document extends NextDocument {
 
           <Script
             async
+            strategy="beforeInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_MEASUREMENT_ID}`}
           />
 
-          <Script id="google-analytics">
+          <Script strategy="beforeInteractive" id="google-analytics">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -51,6 +52,7 @@ export default class Document extends NextDocument {
           <Main />
           <NextScript />
         </body>
+        {/* <GoogleAnalytics gaId={process.env.GOOGLE_MEASUREMENT_ID || ""} /> */}
       </Html>
     );
   }
