@@ -2,12 +2,30 @@ import { ColorModeScript } from "@chakra-ui/react";
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
 import theme from "../theme";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
         <Head>
+          {/* <!-- Google tag (gtag.js) --> */}
+
+          <Script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_MEASUREMENT_ID}`}
+          />
+
+          <Script id="google-analytics">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', ${process.env.GOOGLE_MEASUREMENT_ID});
+          `}
+          </Script>
+          {/* <!-- END Google tag (gtag.js) --> */}
+
           <link
             rel="apple-touch-icon"
             sizes="76x76"
@@ -26,7 +44,7 @@ export default class Document extends NextDocument {
             href="/static/favicons/favicon-16x16.png"
           />
           <link rel="manifest" href="/static/favicons/manifest.json" />
-          <GoogleAnalytics gaId={process.env.GOOGLE_MEASUREMENT_ID || ""} />
+          {/* <GoogleAnalytics gaId={process.env.GOOGLE_MEASUREMENT_ID || ""} /> */}
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
