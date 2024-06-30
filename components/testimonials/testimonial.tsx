@@ -1,17 +1,17 @@
-import { Avatar } from '@chakra-ui/react'
-import { Card, CardBody, CardProps } from '@saas-ui/react'
-import NextLink from 'next/link'
+import { Avatar, Card, CardBody, CardProps } from "@chakra-ui/react";
+// import { Card, CardBody, CardProps } from '@saas-ui/react'
+import NextLink from "next/link";
 
 export interface TestimonialProps extends CardProps {
-  name: string
-  description: React.ReactNode
-  avatar: string
-  href?: string
-  children: React.ReactNode
+  name: string;
+  description: React.ReactNode;
+  avatar: string;
+  href?: string;
+  children: React.ReactNode;
 }
 
-export const Testimonial: React.FC<TestimonialProps> = (props) => {
-  const { name, description, avatar, href, children, ...rest } = props
+export const Testimonial: React.FC<TestimonialProps> = props => {
+  const { name, description, avatar, href, children, ...rest } = props;
   const card = (
     <Card
       avatar={<Avatar name={name} src={avatar} />}
@@ -21,11 +21,11 @@ export const Testimonial: React.FC<TestimonialProps> = (props) => {
     >
       <CardBody fontSize="md">{children}</CardBody>
     </Card>
-  )
+  );
 
   if (href) {
-    return <NextLink href={href}>{card}</NextLink>
+    return <NextLink href={href}>{card}</NextLink>;
   }
 
-  return card
-}
+  return card;
+};

@@ -1,6 +1,7 @@
-import NextLink from 'next/link'
+import NextLink from "next/link";
 import {
   Box,
+  Button,
   Container,
   Flex,
   HStack,
@@ -8,30 +9,28 @@ import {
   LinkBox,
   LinkOverlay,
   useColorModeValue,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react";
 import {
   Banner,
   BannerActions,
   BannerContent,
   BannerDescription,
   BannerTitle,
-  Button,
-} from '@saas-ui/react'
-import { FiArrowRight } from 'react-icons/fi'
+} from "@saas-ui/react";
+
+import { FiArrowRight } from "react-icons/fi";
 
 export interface AnnouncementBannerProps {
-  title: string
-  description: string
-  href: string
+  title: string;
+  description: string;
+  href: string;
 }
 
-export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
-  props
-) => {
-  const { title, description, href } = props
-  const bg = useColorModeValue('white', 'gray.900')
+export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = props => {
+  const { title, description, href } = props;
+  const bg = useColorModeValue("white", "gray.900");
   if (!title) {
-    return null
+    return null;
   }
 
   return (
@@ -59,19 +58,19 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
             cursor="pointer"
             _before={{
               content: `""`,
-              position: 'absolute',
+              position: "absolute",
               zIndex: -1,
               top: 0,
               right: 0,
               bottom: 0,
               left: 0,
-              borderRadius: 'inherit',
-              margin: '-2px',
-              bgGradient: 'linear(to-r, purple.500, cyan.500)',
+              borderRadius: "inherit",
+              margin: "-2px",
+              bgGradient: "linear(to-r, purple.500, cyan.500)",
             }}
             _hover={{
-              '& .chakra-icon': {
-                transform: 'translate(0)',
+              "& .chakra-icon": {
+                transform: "translate(0)",
               },
             }}
           >
@@ -80,7 +79,7 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
               <BannerDescription
                 as={LinkOverlay}
                 href={href}
-                display={{ base: 'none', md: 'block' }}
+                display={{ base: "none", md: "block" }}
               >
                 {description}
               </BannerDescription>
@@ -91,7 +90,7 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
                   variant="link"
                   color="muted"
                   _hover={{
-                    textDecoration: 'none',
+                    textDecoration: "none",
                   }}
                   rightIcon={
                     <Icon
@@ -110,5 +109,5 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
         </NextLink>
       </Container>
     </Flex>
-  )
-}
+  );
+};

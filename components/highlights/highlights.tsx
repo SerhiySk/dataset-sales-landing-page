@@ -8,18 +8,18 @@ import {
   useColorModeValue,
   useTheme,
   VStack,
-} from '@chakra-ui/react'
-import { transparentize } from '@chakra-ui/theme-tools'
-import { Card, CardProps, Link } from '@saas-ui/react'
-import { Section, SectionProps } from 'components/section'
-import { Testimonial, TestimonialProps } from 'components/testimonials'
+} from "@chakra-ui/react";
+import { transparentize } from "@chakra-ui/theme-tools";
+import { Card, CardProps } from "@chakra-ui/react";
+import { Section, SectionProps } from "components/section";
+import { Testimonial, TestimonialProps } from "components/testimonials";
 
 export interface HighlightBoxProps
   extends GridItemProps,
-    Omit<CardProps, 'title'> {}
+    Omit<CardProps, "title"> {}
 
-export const HighlightsItem: React.FC<HighlightBoxProps> = (props) => {
-  const { children, title, ...rest } = props
+export const HighlightsItem: React.FC<HighlightBoxProps> = props => {
+  const { children, title, ...rest } = props;
   return (
     <GridItem
       as={Card}
@@ -30,7 +30,7 @@ export const HighlightsItem: React.FC<HighlightBoxProps> = (props) => {
       spacing="8"
       overflow="hidden"
       position="relative"
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={useColorModeValue("white", "gray.800")}
       {...rest}
     >
       {title && (
@@ -40,25 +40,25 @@ export const HighlightsItem: React.FC<HighlightBoxProps> = (props) => {
       )}
       {children}
     </GridItem>
-  )
-}
+  );
+};
 
 export const HighlightsTestimonialItem: React.FC<
   HighlightBoxProps & TestimonialProps & { gradient: [string, string] }
-> = (props) => {
+> = props => {
   const {
     name,
     description,
     avatar,
     children,
-    gradient = ['primary.500', 'secondary.500'],
+    gradient = ["primary.500", "secondary.500"],
     ...rest
-  } = props
-  const theme = useTheme()
+  } = props;
+  const theme = useTheme();
   return (
     <HighlightsItem
       justifyContent="center"
-      _dark={{ borderColor: 'whiteAlpha.300' }}
+      _dark={{ borderColor: "whiteAlpha.300" }}
       p="4"
       {...rest}
     >
@@ -72,7 +72,7 @@ export const HighlightsTestimonialItem: React.FC<
         inset="0px"
         pointerEvents="none"
         zIndex="0"
-        _dark={{ opacity: 0.5, filter: 'blur(50px)' }}
+        _dark={{ opacity: 0.5, filter: "blur(50px)" }}
       />
       <Testimonial
         name={name}
@@ -87,11 +87,11 @@ export const HighlightsTestimonialItem: React.FC<
         {children}
       </Testimonial>
     </HighlightsItem>
-  )
-}
+  );
+};
 
-export const Highlights: React.FC<SectionProps> = (props) => {
-  const { children, ...rest } = props
+export const Highlights: React.FC<SectionProps> = props => {
+  const { children, ...rest } = props;
 
   return (
     <Section
@@ -101,12 +101,12 @@ export const Highlights: React.FC<SectionProps> = (props) => {
       {...rest}
     >
       <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
+        templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(3, 1fr)" }}
         gap={8}
         position="relative"
       >
         {children}
       </Grid>
     </Section>
-  )
-}
+  );
+};

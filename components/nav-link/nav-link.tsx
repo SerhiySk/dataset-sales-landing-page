@@ -1,17 +1,18 @@
-import { forwardRef } from '@chakra-ui/react'
+import { forwardRef } from "@chakra-ui/react";
 
-import { Button, ButtonProps } from '@saas-ui/react'
+import { Button, ButtonProps } from "@chakra-ui/react";
 
-import Link from 'next/link'
+import Link from "next/link";
 
 export interface NavLinkProps extends ButtonProps {
-  isActive?: boolean
-  href?: string
-  id?: string
+  isActive?: boolean;
+  href?: string;
+  id?: string;
+  label: string;
 }
 
-export const NavLink = forwardRef<NavLinkProps, 'a'>((props, ref) => {
-  const { href, type, isActive, ...rest } = props
+export const NavLink = forwardRef<NavLinkProps, "a">((props, ref) => {
+  const { href, type, isActive, ...rest } = props;
 
   return (
     <Button
@@ -23,8 +24,10 @@ export const NavLink = forwardRef<NavLinkProps, 'a'>((props, ref) => {
       isActive={isActive}
       fontWeight="medium"
       {...rest}
-    />
-  )
-})
+    >
+      {props.label}
+    </Button>
+  );
+});
 
-NavLink.displayName = 'NavLink'
+NavLink.displayName = "NavLink";

@@ -1,32 +1,34 @@
-import * as React from 'react'
+import * as React from "react";
 
 const faq = {
-  title: 'Frequently asked questions',
+  title: "Frequently asked questions",
   // description: '',
   items: [
     {
-      q: 'How many products can I use Saas UI Pro for?',
+      q: "What kind of data do you provide?",
       a: (
         <>
-          The single license can be used for one commercial application or SaaS
-          product and unlimited internal tools. You can buy as many licenses as
-          you need. <br /> The unlimited license does not have any restrictions.
+          We provide public web data on millions of professionals, companies and
+          jobs from all over the world. <br />
+          Contact us for a free consultation to learn more.
         </>
       ),
     },
     {
-      q: 'Can I use Saas UI Pro for client work?',
-      a: "Yes, that's totally up to you, as long as it fits the license you purchase.",
+      q: "How fresh is the data?",
+      a: `Profiles were scraped at the beginning of June. Companies were scraped at April.
+
+We can check the freshness of a specific dataset based on the criteria that you specify.`,
     },
     {
-      q: 'Can I use Saas UI Pro for Open Source projects?',
-      a: 'No currently not. A large part of Saas UI is already released under MIT license. We try to give back to the community as much as possible.',
+      q: "How do you deliver the data?",
+      a: "We offer delivery in a ready-to-use CSV or JSON file.",
     },
     {
-      q: 'Does Saas UI include Figma, Sketch or other design files?',
-      a: 'No, Saas UI does not include any design assets. Maintaining design resources costs a lot of extra effort. We believe small teams can move much faster by designing directly in code, with help of Storybooks.',
+      q: "I want to get a specific data, e.g. by location, but you don't have it. Can you get it for me?",
+      a: "Yes. If you need a specific dataset that we don't have, contact us to discuss the terms.",
     },
   ],
-}
+};
 
-export default faq
+export default faq;

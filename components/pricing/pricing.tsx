@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Heading,
   HStack,
   Icon,
@@ -7,73 +8,91 @@ import {
   StackProps,
   Text,
   VStack,
-} from '@chakra-ui/react'
-import { ButtonLink, ButtonLinkProps } from 'components/button-link/button-link'
-import { BackgroundGradient } from 'components/gradients/background-gradient'
-import { Section, SectionProps, SectionTitle } from 'components/section'
-import React from 'react'
-import { FiCheck } from 'react-icons/fi'
-
+} from "@chakra-ui/react";
+import {
+  ButtonLink,
+  ButtonLinkProps,
+} from "components/button-link/button-link";
+import { BackgroundGradient } from "components/gradients/background-gradient";
+import { Section, SectionProps, SectionTitle } from "components/section";
+import SignUpModal from "components/sign-up-modal/sign-up";
+import React from "react";
+import { FiCheck } from "react-icons/fi";
+import { useDisclosure } from "@chakra-ui/react";
 export interface PricingPlan {
-  id: string
-  title: React.ReactNode
-  description: React.ReactNode
-  price: React.ReactNode
-  features: Array<PricingFeatureProps | null>
-  action: ButtonLinkProps & { label?: string }
-  isRecommended?: boolean
+  id: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
+  price: React.ReactNode;
+  features: Array<PricingFeatureProps | null>;
+  action: ButtonLinkProps & { label?: string };
+  isRecommended?: boolean;
 }
 
 export interface PricingProps extends SectionProps {
-  description: React.ReactNode
-  plans: Array<PricingPlan>
+  description: React.ReactNode;
+  plans: Array<PricingPlan>;
 }
 
-export const Pricing: React.FC<PricingProps> = (props) => {
-  const { children, plans, title, description, ...rest } = props
-
+export const Pricing: React.FC<PricingProps> = props => {
+  const { children, plans, title, description, ...rest } = props;
+  const { isOpen, onClose, onOpen } = useDisclosure();
   return (
-    <Section id="pricing" pos="relative" {...rest}>
-      <BackgroundGradient height="100%" />
-      <Box zIndex="2" pos="relative">
-        <SectionTitle title={title} description={description}></SectionTitle>
+    <>
+      <Section id="pricing" pos="relative" {...rest}>
+        <BackgroundGradient height="100%" />
+        <Box zIndex="2" pos="relative">
+          <SectionTitle title={title} description={description}></SectionTitle>
 
-        <SimpleGrid columns={[1, null, 3]} spacing={4}>
-          {plans?.map((plan) => (
-            <PricingBox
-              key={plan.id}
-              title={plan.title}
-              description={plan.description}
-              price={plan.price}
-              sx={
-                plan.isRecommended
-                  ? {
-                      borderColor: 'primary.500',
-                      _dark: {
-                        borderColor: 'primary.500',
-                        bg: 'blackAlpha.300',
-                      },
-                    }
-                  : {}
-              }
-            >
-              <PricingFeatures>
-                {plan.features.map((feature, i) =>
-                  feature ? <PricingFeature key={i} {...feature} /> : <br />
-                )}
-              </PricingFeatures>
-              <ButtonLink colorScheme="primary" {...plan.action}>
-                {plan.action.label || 'Sign Up'}
-              </ButtonLink>
-            </PricingBox>
-          ))}
-        </SimpleGrid>
+          <SimpleGrid columns={[1, null, 3]} spacing={4}>
+            {plans?.map(plan => (
+              <PricingBox
+                key={plan.id}
+                title={plan.title}
+                description={plan.description}
+                price={plan.price}
+                sx={
+                  plan.isRecommended
+                    ? {
+                        borderColor: "primary.500",
+                        _dark: {
+                          borderColor: "primary.500",
+                          bg: "blackAlpha.300",
+                        },
+                      }
+                    : {}
+                }
+              >
+                <PricingFeatures>
+                  {plan.features.map((feature, i) =>
+                    feature ? (
+                      <PricingFeature key={i} {...feature} />
+                    ) : (
+                      <br key={i} />
+                    )
+                  )}
+                </PricingFeatures>
+                <Button
+                  colorScheme="primary"
+                  {...plan.action}
+                  onClick={() => onOpen()}
+                >
+                  {plan.action.label || "Sign Up"}
+                </Button>
+                {/* <ButtonLink colorScheme="primary" {...plan.action}>
+                {plan.action.label || "Sign Up"}
+              </ButtonLink> */}
+              </PricingBox>
+            ))}
+          </SimpleGrid>
 
-        {children}
-      </Box>
-    </Section>
-  )
-}
+          {children}
+        </Box>
+      </Section>
+      <SignUpModal isOpen={isOpen} onClose={onClose} />
+    </>
+  );
+};
 
 const PricingFeatures: React.FC<React.PropsWithChildren<{}>> = ({
   children,
@@ -88,16 +107,16 @@ const PricingFeatures: React.FC<React.PropsWithChildren<{}>> = ({
     >
       {children}
     </VStack>
-  )
-}
+  );
+};
 
 export interface PricingFeatureProps {
-  title: React.ReactNode
-  iconColor?: string
+  title: React.ReactNode;
+  iconColor?: string;
 }
 
-const PricingFeature: React.FC<PricingFeatureProps> = (props) => {
-  const { title, iconColor = 'primary.500' } = props
+const PricingFeature: React.FC<PricingFeatureProps> = props => {
+  const { title, iconColor = "primary.500" } = props;
   return (
     <HStack>
       <Icon as={FiCheck} color={iconColor} />
@@ -105,17 +124,17 @@ const PricingFeature: React.FC<PricingFeatureProps> = (props) => {
         {title}
       </Text>
     </HStack>
-  )
+  );
+};
+
+export interface PricingBoxProps extends Omit<StackProps, "title"> {
+  title: React.ReactNode;
+  description: React.ReactNode;
+  price: React.ReactNode;
 }
 
-export interface PricingBoxProps extends Omit<StackProps, 'title'> {
-  title: React.ReactNode
-  description: React.ReactNode
-  price: React.ReactNode
-}
-
-const PricingBox: React.FC<PricingBoxProps> = (props) => {
-  const { title, description, price, children, ...rest } = props
+const PricingBox: React.FC<PricingBoxProps> = props => {
+  const { title, description, price, children, ...rest } = props;
   return (
     <VStack
       zIndex="2"
@@ -127,8 +146,8 @@ const PricingBox: React.FC<PricingBoxProps> = (props) => {
       border="1px solid"
       borderColor="gray.400"
       _dark={{
-        bg: 'blackAlpha.300',
-        borderColor: 'gray.800',
+        bg: "blackAlpha.300",
+        borderColor: "gray.800",
       }}
       {...rest}
     >
@@ -143,5 +162,5 @@ const PricingBox: React.FC<PricingBoxProps> = (props) => {
         {children}
       </VStack>
     </VStack>
-  )
-}
+  );
+};
