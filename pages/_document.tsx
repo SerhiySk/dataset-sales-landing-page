@@ -22,7 +22,7 @@ export default class Document extends NextDocument {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', ${process.env.GOOGLE_MEASUREMENT_ID});
+              gtag('config', '${process.env.GOOGLE_MEASUREMENT_ID}');
           `}
           </Script>
           {/* <!-- END Google tag (gtag.js) --> */}
