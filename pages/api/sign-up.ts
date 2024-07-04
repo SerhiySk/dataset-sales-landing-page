@@ -1,7 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "utils/mongoose";
 import User from "models/User";
+import sgMail from "@sendgrid/mail";
 
+sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -32,11 +34,27 @@ export default async function handler(
         const user = await User.create(
           req.body
         ); /* create a new model in the database */
+
+        /// Notify Us
+        // const msg = {
+        //   to: "sergo.skarbek@gmail.com", // Recipient(s)
+        //   from: "dstatma@gmail.com", // Verified SendGrid sender
+        //   subject: "New Form Submission",
+        //   text: "A new form has been submitted.",
+        //   html: `<strong>Email from the form:</strong> ${email}`,
+        // };
+
+        // try {
+        //   const res = await sgMail.send(msg);
+        //   console.log(res);
+        // } catch (error: any) {
+        //   console.error("SendGrid error", error);
+        //   console.error("SendGrid error body", error?.response?.body);
+        // }
+
         res.status(200).json({ success: true, data: user });
       } catch (error: any) {
-        res
-          .status(400)
-          .json({ success: false, error: error?.message });
+        res.status(400).json({ success: false, error: error?.message });
       }
       break;
     default:

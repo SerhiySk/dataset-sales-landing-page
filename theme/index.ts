@@ -23,7 +23,7 @@ const styles = {
 export default extendTheme(
   {
     config: {
-      initialColorMode: "dark",
+      initialColorMode: "white",
       useSystemColorMode: false,
     },
     styles,
