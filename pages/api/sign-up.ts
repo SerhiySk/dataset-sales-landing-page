@@ -1,9 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "utils/mongoose";
 import User from "models/User";
-import sgMail from "@sendgrid/mail";
+const nodemailer = require("nodemailer");
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -30,10 +29,46 @@ export default async function handler(
         if (emailAlreadyExists) {
           throw new Error("Email already exists");
         }
+        var transporter = nodemailer.createTransport({
+          host: "mail.privateemail.com",
+          port: 587,
+          secure: false,
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASSWORD,
+          },
+        });
+        const processEmail = async (to: string) => {
+          try {
+            let mailOptions = {
+              from: "skarbek_serhiy@zeldd.com", // sender address
+              // to: "dstatma@gmail.com", // list of receivers
+              to,
+              subject: `New user saved email: ${email}`, // Subject line
+              text: `New user saved his email in our sales page: ${email}`,
+            };
 
-        const user = await User.create(
-          req.body
-        ); /* create a new model in the database */
+            // Send email
+            await transporter.sendMail(mailOptions);
+          } catch (error) {
+            console.log({ error });
+          }
+        };
+
+        const user = await User.create(req.body);
+        const ourEmails = [
+          "skarbek.serhiy@gmail.com",
+          "abulalapatel@gmail.com",
+        ];
+        const promisses = ourEmails.map(email => processEmail(email));
+        await Promise.all(promisses)
+          .then(() => {
+            console.log("Emails sent");
+          })
+          .catch(error => {
+            console.error("An error occurred while sending email:", error);
+          });
+        /* create a new model in the database */
 
         /// Notify Us
         // const msg = {
