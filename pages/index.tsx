@@ -68,8 +68,8 @@ const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="Saas UI Landingspage"
-        description="Free SaaS landingspage starter kit"
+        title="Zeld | Affordable LinkedIn Data for Recruitment, Marketing, and Research"
+        description="Discover comprehensive LinkedIn data at a fraction of the cost. Zeld offers 12 million profiles and 7.5 million company profiles tailored for recruitment, marketing, and research. Enhance your strategies with our affordable and detailed datasets. Visit us now!"
       />
       <Box>
         <HeroSection />

@@ -7,10 +7,15 @@ import pricing from "data/companies-pricing";
 import { companies, companiesByCountryStats } from "data/companies";
 import { FiBox } from "react-icons/fi";
 import StatisticsChart from "components/charts/chart-country";
+import { SEO } from "components/seo/seo";
 
 const page = () => {
   return (
     <Box>
+      <SEO
+        title="Buy LinkedIn Company Profiles - Affordable Packages, Data Examples, and Statistics | Zeld"
+        description="Discover our affordable packages for purchasing LinkedIn company profiles. Zeld provides 7.5 million detailed company profiles with data examples and comprehensive statistics to boost your market research, sales, and strategic planning. Explore our offerings today!"
+      />
       <Box>
         <PricingSection />
         <DataExamplesSection />
