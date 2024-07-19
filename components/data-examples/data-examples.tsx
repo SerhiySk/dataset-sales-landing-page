@@ -12,12 +12,15 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { Section, SectionProps, SectionTitle } from "components/section";
+import dynamic from "next/dynamic";
+// import ReactJson from "react-json-view";
 
 interface DataExamplesProps extends Omit<FlexProps, "title"> {
   title: string | React.ReactNode;
   jsonData: any;
   description?: string | React.ReactNode;
 }
+const DynamicReactJson = dynamic(import("react-json-view"), { ssr: false });
 
 export const DataExamples = ({
   title,
@@ -97,7 +100,11 @@ export const DataExamples = ({
                       maxH="full"
                       flexDirection="column"
                     >
-                      <pre>{JSON.stringify(jsonData, null, 2)}</pre>
+                      {/* <pre>{JSON.stringify(jsonData, null, 2)}</pre> */}
+                      <DynamicReactJson
+                        src={jsonData}
+                        displayDataTypes={false}
+                      />
                     </Flex>
                   </Box>
                 </Box>
