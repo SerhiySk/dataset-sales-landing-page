@@ -8,7 +8,7 @@ import { Logo } from "./logo";
 const siteConfig = {
   logo: Logo,
   seo: {
-    title: "Zeld",
+    title: "Zeldd",
     description: "The React component library for startups",
   } as NextSeoProps,
   termsUrl: "#",
@@ -32,7 +32,7 @@ const siteConfig = {
   footer: {
     copyright: (
       <>
-        © 2024 Zeld. All rights reserved. Unauthorized duplication or
+        © 2024 Zeldd. All rights reserved. Unauthorized duplication or
         distribution of our data and content is strictly prohibited.
       </>
     ),

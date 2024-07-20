@@ -68,8 +68,8 @@ const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="Zeld | Affordable LinkedIn Data for Recruitment, Marketing, and Research"
-        description="Discover comprehensive LinkedIn data at a fraction of the cost. Zeld offers 12 million profiles and 7.5 million company profiles tailored for recruitment, marketing, and research. Enhance your strategies with our affordable and detailed datasets. Visit us now!"
+        title="Zeldd | Affordable LinkedIn Data for Recruitment, Marketing, and Research"
+        description="Discover comprehensive LinkedIn data at a fraction of the cost. Zeldd offers 12 million profiles and 7.5 million company profiles tailored for recruitment, marketing, and research. Enhance your strategies with our affordable and detailed datasets. Visit us now!"
       />
       <Box>
         <HeroSection />
@@ -348,7 +348,7 @@ const FeaturesSection = () => {
       }
       description={
         <>
-          Zeld offers comprehensive and customizable LinkedIn datasets,
+          Zeldd offers comprehensive and customizable LinkedIn datasets,
           including profiles, companies, and job descriptions.
           <Br />
           Our high-quality, affordable data solutions are tailored to your

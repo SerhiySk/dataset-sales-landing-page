@@ -11,8 +11,8 @@ const page = () => {
   return (
     <Box>
       <SEO
-        title="Buy LinkedIn Job Descriptions - Affordable Packages and Data Examples | Zeld"
-        description="Explore our affordable packages for purchasing LinkedIn job descriptions. Zeld offers tailored job description data with examples to enhance your recruitment strategies and market insights. Check out our offerings and elevate your hiring process today!"
+        title="Buy LinkedIn Job Descriptions - Affordable Packages and Data Examples | Zeldd"
+        description="Explore our affordable packages for purchasing LinkedIn job descriptions. Zeldd offers tailored job description data with examples to enhance your recruitment strategies and market insights. Check out our offerings and elevate your hiring process today!"
       />
       <Box>
         <PricingSection />

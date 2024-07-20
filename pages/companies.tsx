@@ -13,8 +13,8 @@ const page = () => {
   return (
     <Box>
       <SEO
-        title="Buy LinkedIn Company Profiles - Affordable Packages, Data Examples, and Statistics | Zeld"
-        description="Discover our affordable packages for purchasing LinkedIn company profiles. Zeld provides 7.5 million detailed company profiles with data examples and comprehensive statistics to boost your market research, sales, and strategic planning. Explore our offerings today!"
+        title="Buy LinkedIn Company Profiles - Affordable Packages, Data Examples, and Statistics | Zeldd"
+        description="Discover our affordable packages for purchasing LinkedIn company profiles. Zeldd provides 7.5 million detailed company profiles with data examples and comprehensive statistics to boost your market research, sales, and strategic planning. Explore our offerings today!"
       />
       <Box>
         <PricingSection />
