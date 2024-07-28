@@ -9,7 +9,7 @@ export default {
       id: "100k-jobs",
       title: "Basic",
       description: "100,000 Job Descriptions",
-      price: "200$",
+      price: "$200",
 
       features: [
         {

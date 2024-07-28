@@ -9,7 +9,7 @@ export default {
       id: "500k-companies",
       title: "Basic",
       description: "600,000 companies",
-      price: "200$",
+      price: "$200",
 
       features: [
         {
@@ -39,7 +39,7 @@ export default {
           <Text textDecoration="line-through" fontSize="sm" color="gray.400">
             $1000,
           </Text>
-          <Text>$500,</Text>
+          <Text>$500</Text>
         </HStack>
       ),
       isRecommended: true,

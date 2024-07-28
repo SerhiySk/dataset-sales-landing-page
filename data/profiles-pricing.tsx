@@ -8,7 +8,7 @@ export default {
       id: "600k-profiles",
       title: "Basic",
       description: "600,000 profiles",
-      price: "200$",
+      price: "$200",
       features: [
         {
           title: "Essential Data: 600,000 LinkedIn profiles.",
@@ -35,9 +35,9 @@ export default {
       price: (
         <HStack>
           <Text textDecoration="line-through" fontSize="sm" color="gray.400">
-            €3999,
+            $3999,
           </Text>
-          <Text>2000$,</Text>
+          <Text>$2000</Text>
         </HStack>
       ),
       isRecommended: true,
