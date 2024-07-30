@@ -61,7 +61,7 @@ const AboutUs = () => {
                 borderRadius="full"
                 boxSize="150px"
                 objectFit="cover"
-                src="user-placeholder.jpeg"
+                src="abulala.jpeg"
                 alt="Abulala Patel"
                 mx="auto"
                 mb={4}
