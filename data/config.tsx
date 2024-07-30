@@ -30,6 +30,10 @@ const siteConfig = {
         label: "About Us",
         href: "/about-us",
       },
+      {
+        label: "Contact Us",
+        href: "/contact-us",
+      },
       // {
       //   label: "Contact Us",
       //   href: "/contact_us",
