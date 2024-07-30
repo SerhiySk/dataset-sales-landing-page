@@ -9,6 +9,7 @@ export default {
       id: "companies",
       title: "Companies",
       description: "7.5m company profiles",
+      samplesHref: "/companies#examples",
       price: (
         <HStack>
           <Text textDecoration="line-through" fontSize="sm" color="gray.400">
@@ -44,6 +45,8 @@ export default {
       id: "profiles",
       title: "Profiles",
       description: "12m linkedin profiles",
+      samplesHref: "/profiles#examples",
+
       price: (
         <HStack>
           <Text textDecoration="line-through" fontSize="sm" color="gray.400">
@@ -75,6 +78,7 @@ export default {
       description:
         "Request tailored job descriptions with historical examples.",
       price: "Custom",
+      samplesHref: "/jobs#examples",
       features: [
         {
           title:

@@ -54,7 +54,7 @@ import { Testimonial, Testimonials } from "components/testimonials";
 import faq from "data/faq";
 import testimonials from "data/testimonials";
 import pricing from "data/pricing";
-
+import { Divider } from "@chakra-ui/react";
 import {
   Highlights,
   HighlightsItem,
@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
     <>
       <Box position="relative" overflow="hidden">
         <BackgroundGradient height="100%" />
-        <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
+        <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="5">
           <Stack direction={{ base: "column", lg: "row" }} alignItems="center">
             <Hero
               id="home"
@@ -177,8 +177,8 @@ const HeroSection: React.FC = () => {
               </FallInPlace>
             </Box>
           </Stack>
+          <Divider />
         </Container>
-
         {/* <Features
           id="benefits"
           columns={[1, 2, 4]}
@@ -336,6 +336,7 @@ const FeaturesSection = () => {
   return (
     <Features
       id="features"
+      pt={{ base: 5, lg: 10 }}
       title={
         <Heading
           lineHeight="short"
@@ -465,9 +466,10 @@ const TestimonialsSection = () => {
 const PricingSection = () => {
   return (
     <Pricing {...pricing}>
-      <Text p="8" textAlign="center" color="muted">
-        {/* VAT may be applicable depending on your location. */}
-      </Text>
+      {""}
+      {/* <Text p="8" textAlign="center" color="muted">
+        VAT may be applicable depending on your location.
+      </Text> */}
     </Pricing>
   );
 };

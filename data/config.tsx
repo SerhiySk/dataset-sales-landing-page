@@ -13,6 +13,9 @@ const siteConfig = {
   } as NextSeoProps,
   termsUrl: "#",
   privacyUrl: "#",
+  companyLinkedin: "https://www.linkedin.com/company/zeldd",
+  companyEmail: "sales@zeldd.com",
+  companyFacebook: "https://www.facebook.com/people/Zelddcom/61562753287956/",
   header: {
     links: [
       {
@@ -22,6 +25,10 @@ const siteConfig = {
       {
         id: "faq",
         label: "FAQ",
+      },
+      {
+        label: "About Us",
+        href: "/about-us",
       },
       // {
       //   label: "Contact Us",

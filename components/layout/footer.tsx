@@ -7,7 +7,9 @@ import {
   Stack,
   Flex,
   HStack,
+  VStack,
 } from "@chakra-ui/react";
+import { FaLinkedin, FaFacebookSquare } from "react-icons/fa";
 
 import { Link, LinkProps } from "@saas-ui/react";
 
@@ -22,7 +24,7 @@ export const Footer: React.FC<FooterProps> = props => {
   return (
     <Box bg="white" _dark={{ bg: "gray.900" }} {...rest}>
       <Container maxW="container.2xl" px="8" py="8">
-        <SimpleGrid columns={columns}>
+        <SimpleGrid columns={{ base: 1, lg: columns }}>
           <Stack spacing="8">
             <Stack alignItems="flex-start">
               <Flex>
@@ -34,6 +36,35 @@ export const Footer: React.FC<FooterProps> = props => {
             </Stack>
             <Copyright>{siteConfig.footer.copyright}</Copyright>
           </Stack>
+          <HStack alignItems={"end"} justifyContent={"end"}>
+            <HStack spacing={5} alignItems={"center"}>
+              <HStack>
+                <Text fontSize="md" color={"muted"}>
+                  Contact Us:
+                </Text>
+
+                <Link href={"mailto:" + siteConfig.companyEmail} fontSize="sm">
+                  {siteConfig.companyEmail}
+                </Link>
+              </HStack>
+              <Link
+                href={siteConfig.companyLinkedin}
+                isExternal
+                color={"blue.600"}
+                _hover={{ color: "blue.800" }}
+              >
+                <FaLinkedin size={30} />
+              </Link>
+              <Link
+                href={siteConfig.companyFacebook}
+                isExternal
+                color={"blue.600"}
+                _hover={{ color: "blue.800" }}
+              >
+                <FaFacebookSquare size={30} />
+              </Link>
+            </HStack>
+          </HStack>
           {/* <HStack justify="flex-end" spacing="4" alignSelf="flex-end">
             {siteConfig.footer?.links?.map(({ href, label }) => (
               <FooterLink key={href} href={href}>

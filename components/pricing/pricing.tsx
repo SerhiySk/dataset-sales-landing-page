@@ -4,6 +4,7 @@ import {
   Heading,
   HStack,
   Icon,
+  Link,
   SimpleGrid,
   StackProps,
   Text,
@@ -19,6 +20,9 @@ import SignUpModal from "components/sign-up-modal/sign-up";
 import React from "react";
 import { FiCheck } from "react-icons/fi";
 import { useDisclosure } from "@chakra-ui/react";
+import NextLink from "next/link";
+// import { Link as ReactRouterLink } from 'react-router-dom'
+
 export interface PricingPlan {
   id: string;
   title: React.ReactNode;
@@ -26,6 +30,7 @@ export interface PricingPlan {
   price: React.ReactNode;
   features: Array<PricingFeatureProps | null>;
   action: ButtonLinkProps & { label?: string };
+  samplesHref?: string;
   isRecommended?: boolean;
 }
 
@@ -39,7 +44,7 @@ export const Pricing: React.FC<PricingProps> = props => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <>
-      <Section id="pricing" pos="relative" {...rest}>
+      <Section id="pricing" pos="relative" {...rest} pb={"0"}>
         <BackgroundGradient height="100%" />
         <Box zIndex="2" pos="relative">
           <SectionTitle title={title} description={description}></SectionTitle>
@@ -72,6 +77,7 @@ export const Pricing: React.FC<PricingProps> = props => {
                     )
                   )}
                 </PricingFeatures>
+
                 <Button
                   colorScheme="primary"
                   {...plan.action}
@@ -79,6 +85,19 @@ export const Pricing: React.FC<PricingProps> = props => {
                 >
                   {plan.action.label || "Sign Up"}
                 </Button>
+
+                {plan.samplesHref && (
+                  <Link
+                    href={plan.samplesHref}
+                    as={NextLink}
+                    fontSize="sm"
+                    color={"purple.500"}
+                    alignSelf={"center"}
+                    // variant={"primary"}
+                  >
+                    View Samples
+                  </Link>
+                )}
                 {/* <ButtonLink colorScheme="primary" {...plan.action}>
                 {plan.action.label || "Sign Up"}
               </ButtonLink> */}
@@ -86,7 +105,7 @@ export const Pricing: React.FC<PricingProps> = props => {
             ))}
           </SimpleGrid>
 
-          {children}
+          {/* {children} */}
         </Box>
       </Section>
       <SignUpModal isOpen={isOpen} onClose={onClose} />
