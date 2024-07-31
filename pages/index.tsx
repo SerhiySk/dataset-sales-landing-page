@@ -63,6 +63,7 @@ import {
 import SignUpModal from "components/sign-up-modal/sign-up";
 
 import { useDisclosure } from "@chakra-ui/react";
+import { ContactUsForm } from "components/contact-us/Form";
 
 const Home: NextPage = () => {
   return (
@@ -83,6 +84,7 @@ const Home: NextPage = () => {
         <PricingSection />
 
         <FaqSection />
+        <ContactUsSection />
       </Box>
     </Box>
   );
@@ -476,6 +478,9 @@ const PricingSection = () => {
 
 const FaqSection = () => {
   return <Faq {...faq} />;
+};
+const ContactUsSection = () => {
+  return <ContactUsForm id="contact-us" justifyContent="center" px="0" />;
 };
 
 export default Home;
