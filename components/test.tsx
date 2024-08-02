@@ -102,6 +102,76 @@ function Test({ onCreate }) {
     </form>
   );
 }
+const orders = [
+  {
+    orderId: "001",
+    customer: {
+      email: "dstatma@gmail.com",
+      name: "Danulo Statma",
+    },
+    total: 50.0,
+    products: [
+      {
+        name: "Company Profiles - Small",
+        price: 50.0,
+        quantity: 1,
+        category: "LinkedIn Data - Companies",
+      },
+    ],
+    status: "completed",
+  },
+  {
+    orderId: "002",
+    customer: {
+      email: "maxchorna@gmail.com",
+      name: "Maxim Chorna",
+    },
+    total: 100.0,
+    products: [
+      {
+        name: "User Profiles - Small",
+        price: 100.0,
+        quantity: 1,
+        category: "LinkedIn Data - User Profiles",
+      },
+    ],
+    status: "completed",
+  },
+  {
+    orderId: "003",
+    customer: {
+      email: "mariyahpatel07@gmail.com",
+      name: "Sammy Nacer",
+    },
+    total: 0.0,
+    products: [
+      {
+        name: "Sample Data of Jobs, Profiles, and Companies",
+        price: 0.0,
+        quantity: 1,
+        category: "LinkedIn Data - Samples",
+      },
+    ],
+    status: "completed",
+  },
+  {
+    orderId: "004",
+    customer: {
+      email: "dollawya@gmail.com",
+      name: "Jessica Garcia",
+    },
+    total: 100.0,
+    products: [
+      {
+        name: "User Profiles and Companies - Small",
+        price: 100.0,
+        quantity: 1,
+        category: "LinkedIn Data - User Profiles and Companies",
+      },
+    ],
+    status: "completed",
+  },
+];
 function Forms() {
   const handleCreateUser = userData => {
     // Handle user creation logic here
@@ -126,7 +196,39 @@ function Forms() {
     <>
       <Test onCreate={handleCreateUser} />
       <AssignPackageForm onAssign={handleAssignPackage} />
+      <button
+        type="button"
+        style={{ backgroundColor: "blue" }}
+        onClick={processOrders}
+      >
+        Create orders
+      </button>
     </>
   );
 }
 export default Forms;
+const processOrders = () => {
+  orders.forEach(order => {
+    trackOrderCompleted(order);
+  });
+};
+const trackOrderCompleted = order => {
+  if (!order || !order.orderId || !order.customer.email) {
+    console.error("Order ID and customer email are required.");
+    return;
+  }
+
+  analytics.track("Order Completed", {
+    order_id: order.orderId,
+    email: order.customer.email,
+    name: order.customer.name,
+    surname: order.customer.surname || "", // Optional
+    total: order.total,
+    products: order.products.map(product => ({
+      name: product.name,
+      price: product.price,
+      quantity: product.quantity,
+      category: product.category || "LinkedIn Data", // Default category
+    })),
+  });
+};
