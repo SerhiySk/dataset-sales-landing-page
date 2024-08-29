@@ -17,9 +17,15 @@ import {
   FlexProps,
   Flex,
   Container,
+  Divider,
+  AbsoluteCenter,
+  Link,
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 import { Section, SectionProps, SectionTitle } from "components/section";
+import { ButtonLink } from "components/button-link/button-link";
+
+import siteConfig from "data/config";
 function DisableIfInvalid() {
   const [error, setError] = useState(null);
 
@@ -141,6 +147,23 @@ export const ContactUsForm: React.FC<ContactUsProps> = props => {
             </Flex>
           </Form>
         </Box>
+        <Box position="relative" padding="10" width={"100%"} px={"0"}>
+          <Divider borderColor={"gray.400"} />
+          <AbsoluteCenter bg="white" px="4" fontWeight={"500"}>
+            OR
+          </AbsoluteCenter>
+        </Box>
+        <Flex width={"100%"} px={"0"} justify={"center"}>
+          <ButtonLink
+            href={siteConfig.calendlyLink}
+            size="lg"
+            variant="solid"
+            mx={"auto"}
+            colorScheme="primary"
+          >
+            Book Now
+          </ButtonLink>
+        </Flex>
       </Container>
     </Flex>
   );

@@ -10,10 +10,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { FaLinkedin, FaFacebookSquare } from "react-icons/fa";
-
 import { Link, LinkProps } from "@saas-ui/react";
 
 import siteConfig from "data/config";
+import Image from "next/image";
 
 export interface FooterProps extends BoxProps {
   columns?: number;
@@ -62,6 +62,22 @@ export const Footer: React.FC<FooterProps> = props => {
                 _hover={{ color: "blue.800" }}
               >
                 <FaFacebookSquare size={30} />
+              </Link>
+              <Link
+                href={siteConfig.calendlyLink}
+                isExternal
+                color={"blue.600"}
+                _hover={{ color: "blue.800" }}
+              >
+                <img
+                  src={"/calendly.svg"}
+                  alt="calendly"
+                  style={{
+                    height: "42px",
+                    marginLeft: "-5px",
+                    marginRight: "-5px",
+                  }}
+                />
               </Link>
             </HStack>
           </HStack>

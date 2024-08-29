@@ -8,6 +8,7 @@ import {
   HStack,
   Icon,
 } from "@chakra-ui/react";
+import siteConfig from "data/config";
 import { FaLinkedin } from "react-icons/fa";
 
 const ContactUs = () => {
@@ -86,6 +87,19 @@ const ContactUs = () => {
                   <Icon as={FaLinkedin} />
                   <Text>Abulala Patel</Text>
                 </HStack>
+              </Link>
+            </HStack>
+          </VStack>
+        </Box>
+        <Box>
+          <Heading as="h2" size="lg" mb={4}>
+            Schedule A Meeting
+          </Heading>
+          <VStack align="flex-start" spacing={4}>
+            <HStack>
+              <Text fontWeight="bold">Calendly:</Text>
+              <Link href={siteConfig.calendlyLink} color="purple.500">
+                {"Book Now"}
               </Link>
             </HStack>
           </VStack>

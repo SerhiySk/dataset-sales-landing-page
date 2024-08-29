@@ -16,6 +16,7 @@ const siteConfig = {
   companyLinkedin: "https://www.linkedin.com/company/zeldd",
   companyEmail: "sales@zeldd.com",
   companyFacebook: "https://www.facebook.com/people/Zelddcom/61562753287956/",
+  calendlyLink: "https://calendly.com/sales-zeldd/30min",
   header: {
     links: [
       {

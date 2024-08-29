@@ -35,9 +35,9 @@ export default {
       price: (
         <HStack>
           <Text textDecoration="line-through" fontSize="sm" color="gray.400">
-            $3999,
+            $3,999
           </Text>
-          <Text>$2000</Text>
+          <Text>$2,000</Text>
         </HStack>
       ),
       isRecommended: true,
