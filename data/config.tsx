@@ -13,7 +13,7 @@ const siteConfig = {
   } as NextSeoProps,
   termsUrl: "#",
   privacyUrl: "#",
-  companyLinkedin: "https://www.linkedin.com/company/zeldd",
+  companyLinkedin: "https://www.linkedin.com/company/zelddata",
   companyEmail: "sales@zeldd.com",
   companyFacebook: "https://www.facebook.com/people/Zelddcom/61562753287956/",
   calendlyLink: "https://calendly.com/sales-zeldd/30min",
